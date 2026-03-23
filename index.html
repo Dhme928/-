@@ -9,18 +9,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
+
+  <!-- شريط الإعلانات العلوي -->
+  <div class="announcement-bar">
+    📢 يا هلا بالطش والرش: التوصيل علينا لكل حي بالرياض لطلباتكم اللي تتعدى ١٥٠ ريال! 🚗
+  </div>
+
+  <header id="main-header" class="site-header">
     <div class="container header-grid">
       <div class="brand">
         <img src="assets/logo.png" alt="شعار المطبخ" class="logo" onerror="this.style.display='none'" />
         <div>
           <h1>طَبخ أُمِيمْتي</h1>
-          <p class="tagline">أصالة المذاق السعودي</p>
+          <p class="tagline">طبخٍ يجمّل ويبيض الوجه</p>
         </div>
       </div>
       <nav class="top-nav">
         <a href="#menu">قائمة الأطباق</a>
-        <a href="#about">قصتنا</a>
+        <a href="about.html">قصتنا</a>
+        <a href="#reviews">آراء عملائنا</a>
         <a href="#contact">تواصل معنا</a>
         <a href="admin.html" class="admin-link" style="display: none;">الإدارة</a>
       </nav>
@@ -30,55 +37,72 @@
   <main>
     <section id="hero" class="hero">
       <div class="container">
-        <h2>اكتشف متعة المذاق الأصيل</h2>
-        <p>نقدم لكم تشكيلة فاخرة من الأطباق السعودية المحضرة بحب وعناية فائقة. (اضغط على أي طبق لتفاصيل أكثر)</p>
+        <h2>حيّاكم الله على طَبخٍ يجمّل</h2>
+        <p>نضبط لكم أزين الأطباق السعودية، مسواةٍ بسناعة ونَفَس يرضي ذائقتكم.</p>
+        
+        <!-- بطاقة ليونة وغزولة الفنية -->
+        <div class="menu-paper-card">
+          <!-- الصورة من ملفاتك المحلية -->
+          <img src="assets/girls.png" alt="ليونة وغزولة" class="girls-img" />
+          <div class="paper-text">
+            <button class="share-btn-paper" onclick="shareMenu()">🔗 شارك/ي المنيو مع ربعك وحبايبك</button>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <section id="menu" class="menu container">
-      <h3>قائمة الأطباق</h3>
+      <!-- شريط التصنيفات -->
+      <div id="category-filters" class="controls"></div>
       
-      <!-- أزرار التصنيفات -->
-      <div id="category-filters" class="controls" style="justify-content: center; margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
-      
-      <!-- شريط البحث -->
       <div style="max-width: 500px; margin: 0 auto 30px auto; padding: 0 15px;">
-        <input type="text" id="visitorSearch" placeholder="🔍 ابحث عن طبق بالاسم أو الوصف..." style="width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #ddd; font-family: 'Cairo', sans-serif; font-size: 1rem; outline: none; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" />
+        <input type="text" id="visitorSearch" placeholder="🔍 دوّر على الطبخة اللي بخاطرك..." style="width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #ddd; font-family: 'Cairo', sans-serif; font-size: 1rem; outline: none; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" />
       </div>
 
       <div id="powr-menu" aria-live="polite"></div>
       <div id="local-menu" class="items-grid" aria-live="polite"></div>
     </section>
 
-    <section id="about" class="about container">
-      <h3>قصتنا</h3>
-      <div style="max-width: 800px; margin: 0 auto; color: var(--text-muted); line-height: 1.8; text-align: right; padding: 0 15px;">
-        
-        <p style="text-align: center; font-weight: bold; font-size: 1.2rem; color: #333; margin-bottom: 20px;">من مطبخ البيت.. إلى قلوبكم</p>
-        
-        <p>لم تبدأ قصة "طبخ أُميمتي" بين جدران مطبخ تجاري، ولا من دراسة لجدوى اقتصادية.. بل بدأت قبل ذلك بكثير؛ في مطبخ دافئ يملؤه عبق البهارات المحمصة بحب، وصوت ضحكات العائلة الملتفة حول مائدة واحدة يوم الجمعة.</p>
-        
-        <p>"أُميمتي".. الكلمة التي تحمل في طياتها كل معاني الحنان، لم تكن تطبخ لنا لنسد جوعنا فقط، بل كانت تطبخ لتعبر عن حبها. من يديها تعلمنا أن سر النكهة لا يكمن في المقادير المكتوبة، بل في "النَفَس" الطيب، وفي الصبر على نار هادئة، والاهتمام بأدق تفاصيل الطبخة لتخرج وكأنها لوحة فنية محاكة بالحب.</p>
-        
-        <p>كبرنا، وكبر معنا الحنين لتلك الأطباق الأصيلة التي بتنا نفتقدها في زحام الحياة العصرية وسرعتها. ومن هنا، وُلدت الفكرة. سألنا أنفسنا: لماذا لا نُشرك الناس هذا الدفء؟ ولماذا لا ننقل مائدة أُميمتي من بيتنا الصغير.. لتتسع للجميع؟</p>
-        
-        <p>في مطعم طبخ أُميمتي، نحن لا نقدم مجرد وجبات، بل نعيد إحياء ذكريات الأمهات والجدات. نلتزم باستخدام نفس المكونات الطازجة، ونفس خلطات البهارات السرية، ونفس الشغف القديم في التحضير.</p>
-        
-        <p style="font-weight: bold; margin-top: 25px; color: #333;">ما نعدكم به:</p>
-        <ul style="list-style-type: none; padding-right: 0;">
-          <li style="margin-bottom: 10px;">🤎 <strong>نَفَس البيت:</strong> أطباق محضرة بعناية فائقة، خالية من التصنع، ومليئة بالبركة.</li>
-          <li style="margin-bottom: 10px;">🤎 <strong>أصالة المكونات:</strong> نختار لحومنا وخضرواتنا وبهاراتنا كما تختارها الأم لأبنائها؛ الأجود والأنظف دائمًا.</li>
-          <li style="margin-bottom: 10px;">🤎 <strong>كرم الضيافة:</strong> هنا، أنت لست زبوناً.. أنت ضيفٌ على مائدة العائلة.</li>
-        </ul>
-        
-        <p style="text-align: center; font-weight: bold; margin-top: 35px; color: #b38b59; font-size: 1.1rem;">"حياكم الله في طبخ أُميمتي.. حيث كل لقمة، تروي قصة دافئة."</p>
-      
+    <section id="reviews" class="reviews container">
+      <h3>آراء زبايننا الغالين</h3>
+      <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">عز الله إن ثقتكم ترفع الراس، ورضاكم هو غايتنا 🤎</p>
+      <div class="slider-wrapper">
+        <div class="slider-track">
+          <div class="review-card"><img src="assets/review6.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review5.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review4.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review1.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review2.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review3.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review7.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review8.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review9.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review10.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review11.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review12.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review13.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review14.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review15.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review16.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review17.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review18.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review19.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review20.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review21.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review22.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+          <div class="review-card"><img src="assets/review23.jpg" alt="رأي عميل" onclick="openModal(this.src, 'من آراء عملائنا 🤎', '')"></div>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="contact container">
-      <h3>نسعد بتواصلكم</h3>
-      <p><strong>واتساب:</strong> <a href="https://iwtsp.com/966504228617" dir="ltr">0504228617</a></p>
+      <h3>يا هلا ومسهلا بتواصلكم</h3>
+      <div class="delivery-info">
+          <p>🚗 <strong>التوصيل مجاني لكل حي بالرياض</strong></p>
+          <p>⏰ نستقبل طلباتكم كل يوم من ١ الظهر إلين ١١ بالليل</p>
+      </div>
+      <p><strong>واتساب:</strong> <a href="https://wsend.co/966504228617" dir="ltr">0504228617</a></p>
       <p><strong>تيك توك:</strong> <a href="https://www.tiktok.com/@m6b5vip?_r=1&_t=ZP-94sxUYq8beR" target="_blank">@m6b5vip</a></p>
     </section>
   </main>
@@ -88,6 +112,31 @@
       <p>© <span id="year"></span> طَبخ أُمِيمْتي. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
+
+  <a href="https://wsend.co/966504228617" class="whatsapp-float-btn" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="اطلب عبر الواتساب" />
+    <span class="tooltip-text">تواصل معنا واطلب</span>
+  </a>
+
+  <div id="notepad-container" class="notepad-container">
+    <div id="notepad-panel" class="notepad-panel">
+      <div class="notepad-header">
+        <h4 style="margin:0; font-size:1rem; color:#333;">📝 مقاضيي</h4>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button onclick="clearNotepad()" style="background:none; border:none; color:#dc3545; cursor:pointer; font-size:0.85rem; font-family:'Cairo', sans-serif; font-weight:bold;">🗑️ امسح</button>
+          <button class="close-notepad" onclick="toggleNotepad()">×</button>
+        </div>
+      </div>
+      <textarea id="notepad-text" readonly placeholder="نقّ أطباقك من المنيو وبتطلع لك هنا طال عمرك..."></textarea>
+      <p class="upsell-msg">💡 وش رايك تجمّلها بحلى أو مشروب يبرّد على قلبك؟ 😉</p>
+      <button class="send-whatsapp-btn" onclick="sendNotepadToWhatsApp()">
+        ارسل طلبك للواتساب 📲
+      </button>
+    </div>
+    <button id="notepad-btn" class="notepad-btn" onclick="toggleNotepad()">
+      📝 <span class="notepad-tooltip">سجل طلباتك هنا</span>
+    </button>
+  </div>
 
   <div id="modal" class="modal" aria-hidden="true">
     <div class="modal-content">
@@ -101,6 +150,8 @@
   </div>
 
   <script>
+    window.cart = {};
+
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -112,97 +163,8 @@
       
       let currentFilter = 'all';
       let currentSearchTerm = '';
+      const defaultMenu = []; 
 
-      // 🌟 المنيو الأساسي المدمج في الكود (سيظهر لجميع الزوار) 🌟
-      const defaultMenu = [
-        // الأطباق الرئيسية
-        { id: 1, title: "كبسة دجاج", category: "الأطباق الرئيسية", desc: "كبسة سعودية أصيلة بالدجاج المحمر والبهارات العطرية", imgUrl: "" },
-        { id: 2, title: "كبسة لحم", category: "الأطباق الرئيسية", desc: "لحم طري يذوب بالفم مع أرز الكبسة النثري والبهارات الخاصة", imgUrl: "" },
-        { id: 3, title: "منسف اردني", category: "الأطباق الرئيسية", desc: "منسف بالجميد الأصلي واللحم البلدي الطازج مع المكسرات", imgUrl: "" },
-        { id: 4, title: "برياني دجاج", category: "الأطباق الرئيسية", desc: "طبقات من الأرز والدجاج بتتبيلة البرياني الهندية الغنية", imgUrl: "" },
-        { id: 5, title: "برياني لحم", category: "الأطباق الرئيسية", desc: "لحم مطبوخ ببطء مع أرز البرياني والزعفران والبهارات", imgUrl: "" },
-        { id: 6, title: "مقلوبة دجاج", category: "الأطباق الرئيسية", desc: "مقلوبة الخضار المقلية مع الدجاج والأرز المبهر", imgUrl: "" },
-        { id: 7, title: "مشخول دجاج", category: "الأطباق الرئيسية", desc: "أرز مشخول خفيف ولذيذ مع قطع الدجاج المحمرة", imgUrl: "" },
-        { id: 8, title: "مشخول سمك", category: "الأطباق الرئيسية", desc: "أرز مشخول مع السمك الطازج بتتبيلتنا الخاصة", imgUrl: "" },
-        { id: 9, title: "كبسة سمك سنجاري مشوي", category: "الأطباق الرئيسية", desc: "كبسة مميزة مع سمك مشوي على الطريقة السنجارية", imgUrl: "" },
-        { id: 10, title: "كبسة ربيان", category: "الأطباق الرئيسية", desc: "ربيان طازج مطبوخ مع الأرز والبهارات البحرية", imgUrl: "" },
-        { id: 11, title: "كبسة سلمون", category: "الأطباق الرئيسية", desc: "قطعة سلمون غنية بالأوميغا مطبوخة مع أرز الكبسة", imgUrl: "" },
-        { id: 12, title: "كبسة كنعد", category: "الأطباق الرئيسية", desc: "كبسة بأسماك الكنعد الطازجة والمبهرة", imgUrl: "" },
-        { id: 13, title: "كبسة بحريات متنوعة", category: "الأطباق الرئيسية", desc: "تشكيلة من ثمار البحر الفاخرة مع الأرز اللذيذ", imgUrl: "" },
-        { id: 14, title: "كبسة شيش طاووق", category: "الأطباق الرئيسية", desc: "قطع الدجاج المشوية مع أرز الكبسة الشهي", imgUrl: "" },
-        { id: 15, title: "مشاوي مشكلة", category: "الأطباق الرئيسية", desc: "تشكيلة من اللحوم والدجاج المشوية على الفحم", imgUrl: "" },
-        { id: 16, title: "حميسة لحم مقلقل", category: "الأطباق الرئيسية", desc: "قطع لحم طازجة محموسة مع البصل والطماطم", imgUrl: "" },
-        { id: 17, title: "ذبيحة مفطح مع الرز", category: "الأطباق الرئيسية", desc: "مفطح يبيض الوجه مطبوخ على أصوله للمناسبات", imgUrl: "" },
-        { id: 18, title: "دجاج مسالا", category: "الأطباق الرئيسية", desc: "دجاج بصلصة المسالا الهندية الغنية والكريمة", imgUrl: "" },
-        { id: 19, title: "كشري", category: "الأطباق الرئيسية", desc: "كشري مصري أصيل مع الدقة وصلصة الطماطم", imgUrl: "" },
-        { id: 20, title: "سليق بالدجاج", category: "الأطباق الرئيسية", desc: "سليق طايفي كريمي يذوب في الفم مع دجاج محمر", imgUrl: "" },
-        { id: 21, title: "محاشي مشكلة", category: "الأطباق الرئيسية", desc: "تشكيلة من الخضار المحشوة بالأرز واللحم المفروم", imgUrl: "" },
-        { id: 22, title: "محشي ملفوف", category: "الأطباق الرئيسية", desc: "أوراق الملفوف المحشوة بخلطة الأرز اللذيذة والليمون", imgUrl: "" },
-        { id: 23, title: "شيش برك", category: "الأطباق الرئيسية", desc: "عجين محشو باللحم ومطبوخ في صلصة اللبن الغنية", imgUrl: "" },
-        { id: 24, title: "كبة باللبن", category: "الأطباق الرئيسية", desc: "حبات الكبة المقلية مغمورة بصلصة اللبن الدافئة", imgUrl: "" },
-
-        // الصواني والشعبيات
-        { id: 25, title: "صينية خضار مشكله مع اللحم", category: "الصواني والشعبيات", desc: "خضار طازجة مطبوخة بالفرن مع قطع اللحم", imgUrl: "" },
-        { id: 26, title: "صينية خضار مشكلة مع الدجاج", category: "الصواني والشعبيات", desc: "صينية خضار مشكلة ودجاج محمرة بالفرن", imgUrl: "" },
-        { id: 27, title: "صينية خضار بالبشاميل", category: "الصواني والشعبيات", desc: "خضار مغطاة بطبقة غنية من صوص البشاميل والجبن", imgUrl: "" },
-        { id: 28, title: "كرات البطاطس", category: "الصواني والشعبيات", desc: "كرات البطاطس المهروسة والمحشوة بالدجاج والكريمة", imgUrl: "" },
-        { id: 29, title: "رولات الباذنجان", category: "الصواني والشعبيات", desc: "شرائح الباذنجان الملفوفة بحشوة اللحم وصلصة الطماطم", imgUrl: "" },
-        { id: 30, title: "مسقعة باذنجان", category: "الصواني والشعبيات", desc: "مسقعة باللحم المفروم وصلصة الطماطم الغنية", imgUrl: "" },
-        { id: 31, title: "مرقوق", category: "الصواني والشعبيات", desc: "مرقوق باللحم والخضار وعجين البر على الطريقة النجدية", imgUrl: "" },
-        { id: 32, title: "قرصان", category: "الصواني والشعبيات", desc: "قرصان رقيقة ومشربة بمرق اللحم والخضار والبهارات", imgUrl: "" },
-        { id: 33, title: "جريش حايلي احمر", category: "الصواني والشعبيات", desc: "جريش حايلي باللحم والطماطم والبهارات المميزة", imgUrl: "" },
-        { id: 34, title: "جريش ابيض", category: "الصواني والشعبيات", desc: "جريش أبيض كريمي ولذيذ يذوب بالفم مع كشنة البصل", imgUrl: "" },
-        { id: 35, title: "هريس", category: "الصواني والشعبيات", desc: "هريس باللحم مهروس ومطبوخ لساعات طويلة بقوام مثالي", imgUrl: "" },
-        { id: 36, title: "كبيبة", category: "الصواني والشعبيات", desc: "كبيبة حائل الشهيرة المحشوة بالأرز واللحم والخضار", imgUrl: "" },
-        { id: 37, title: "مصابيب حالي ومالح", category: "الصواني والشعبيات", desc: "مصابيب خفيفة ولذيذة تناسب جميع الأذواق", imgUrl: "" },
-        { id: 38, title: "مقشوش", category: "الصواني والشعبيات", desc: "حلى المقشوش الحايلي الأصيل مع العسل أو الشيرة", imgUrl: "" },
-        { id: 39, title: "قرص عقيلي", category: "الصواني والشعبيات", desc: "كيكة القرص عقيلي الهشة بنكهة الهيل والزعفران والسمسم", imgUrl: "" },
-        { id: 40, title: "فوتشيني", category: "الصواني والشعبيات", desc: "مكرونة فوتشيني بصلصة الكريمة البيضاء الفطر والدجاج", imgUrl: "" },
-        { id: 41, title: "البشاميل", category: "الصواني والشعبيات", desc: "مكرونة باللحم المفروم وطبقة البشاميل الذهبية", imgUrl: "" },
-        { id: 42, title: "بنك باستا", category: "الصواني والشعبيات", desc: "مكرونة بصلصة البينك صوص المكس بين الكريمة والطماطم", imgUrl: "" },
-        { id: 43, title: "باستا بيستو", category: "الصواني والشعبيات", desc: "مكرونة بصلصة الريحان الإيطالية الطازجة والصنوبر", imgUrl: "" },
-        { id: 44, title: "اسبقتي باللحم", category: "الصواني والشعبيات", desc: "سباغيتي بصلصة البولونيز الإيطالية واللحم المفروم", imgUrl: "" },
-        { id: 45, title: "اسبقتي صيني بالدجاج والخضار", category: "الصواني والشعبيات", desc: "نودلز على الطريقة الصينية مع الدجاج وصويا صوص", imgUrl: "" },
-        { id: 46, title: "كانتون صيني", category: "الصواني والشعبيات", desc: "قطع الدجاج بالخضار وصلصة الكانتون الحلوة والمالحة", imgUrl: "" },
-        { id: 47, title: "ايدام خضار مشكل", category: "الصواني والشعبيات", desc: "إيدام خضار مشكلة مطبوخة بصلصة الطماطم ومسبكة", imgUrl: "" },
-        { id: 48, title: "باميا باللحم", category: "الصواني والشعبيات", desc: "إيدام بامية طازجة مع قطع اللحم الطرية", imgUrl: "" },
-        { id: 49, title: "ملوخية", category: "الصواني والشعبيات", desc: "ملوخية خضراء طازجة ومطبوخة بالطشة المصرية", imgUrl: "" },
-        { id: 50, title: "شوربة اللحم", category: "الصواني والشعبيات", desc: "شوربة دافئة وغنية بقطع اللحم والبهارات", imgUrl: "" },
-
-        // المقبلات والسلطات
-        { id: 51, title: "دوريتس", category: "المقبلات والسلطات", desc: "سلطة مبتكرة ومقرمشة بقطع الدوريتوس اللذيذة", imgUrl: "" },
-        { id: 52, title: "تبولة شمندر", category: "المقبلات والسلطات", desc: "تبولة صحية ومنعشة بإضافة الشمندر الطازج", imgUrl: "" },
-        { id: 53, title: "فتوش", category: "المقبلات والسلطات", desc: "سلطة الفتوش اللبنانية مع دبس الرمان والخبز المقرمش", imgUrl: "" },
-        { id: 54, title: "سلطة يونانية", category: "المقبلات والسلطات", desc: "سلطة منعشة بجبنة الفيتا والزيتون الأسود والخضار", imgUrl: "" },
-        { id: 55, title: "سلطة برغل ارمينية", category: "المقبلات والسلطات", desc: "سلطة أرمنية مميزة بالبرغل والرمان ودبس الرمان", imgUrl: "" },
-        { id: 56, title: "سلطة سيزر", category: "المقبلات والسلطات", desc: "سلطة سيزر الكلاسيكية مع الدجاج والخس وجبنة البارميزان", imgUrl: "" },
-        { id: 57, title: "سلطة خضراء", category: "المقبلات والسلطات", desc: "تشكيلة من الخضار الورقية الطازجة والليمون", imgUrl: "" },
-        { id: 58, title: "سلطة الخضار المقلية", category: "المقبلات والسلطات", desc: "سلطة غنية بالخضار المقلية والصلصة الخاصة", imgUrl: "" },
-        { id: 59, title: "سلطة فتة الباذنجان", category: "المقبلات والسلطات", desc: "فتة باذنجان مقرمشة مع صلصة اللبن والخبز المحمص", imgUrl: "" },
-        { id: 60, title: "سلطة المكرونة", category: "المقبلات والسلطات", desc: "سلطة باردة بالمكرونة والخضار والصلصة اللذيذة", imgUrl: "" },
-        { id: 61, title: "سلطة الذرة", category: "المقبلات والسلطات", desc: "سلطة الذرة الحلوة مع الإضافات المنعشة", imgUrl: "" },
-        { id: 62, title: "كبة", category: "المقبلات والسلطات", desc: "كبة شامية مقرمشة ومحشوة باللحم المفروم والصنوبر", imgUrl: "" },
-        { id: 63, title: "حمص", category: "المقبلات والسلطات", desc: "حمص ناعم ومزين بزيت الزيتون البكر", imgUrl: "" },
-        { id: 64, title: "متبل", category: "المقبلات والسلطات", desc: "متبل باذنجان مشوي بنكهة التدخين الرائعة", imgUrl: "" },
-        { id: 65, title: "بابا غنوج", category: "المقبلات والسلطات", desc: "باذنجان مشوي ومهروس مع الخضار المفرومة ودبس الرمان", imgUrl: "" },
-        { id: 66, title: "بف دجاج جبن خضار", category: "المقبلات والسلطات", desc: "سمبوسة بف مقرمشة بحشوات متنوعة ولذيذة", imgUrl: "" },
-        { id: 67, title: "سبرنق رول خضار دجاج جبن", category: "المقبلات والسلطات", desc: "لفائف مقرمشة محشوة بالخضار أو الدجاج أو الجبن", imgUrl: "" },
-        { id: 68, title: "ورق عنب", category: "المقبلات والسلطات", desc: "ورق عنب حامض حلو يذوب بالفم بتتبيلة مميزة", imgUrl: "" },
-
-        // الحلويات والفطور
-        { id: 69, title: "تيراميسو", category: "الحلويات والفطور", desc: "حلى إيطالي فاخر بنكهة القهوة والكاكاو", imgUrl: "" },
-        { id: 70, title: "ترفل المانجو", category: "الحلويات والفطور", desc: "طبقات من الكيك والكريمة وقطع المانجو الطازجة", imgUrl: "" },
-        { id: 71, title: "ام علي", category: "الحلويات والفطور", desc: "حلى أم علي الساخن والمقرمش بالمكسرات والحليب", imgUrl: "" },
-        { id: 72, title: "تشيز بلاتر", category: "الحلويات والفطور", desc: "تشكيلة راقية من الأجبان والمربيات والفواكه للفطور", imgUrl: "" },
-
-        // البوفيهات والذبائح
-        { id: 73, title: "بوفية 5 لتر", category: "البوفيهات والذبائح", desc: "سخان 5 لتر يكفي لضيافة مميزة ومتكاملة", imgUrl: "" },
-        { id: 74, title: "بوفية 8 لتر", category: "البوفيهات والذبائح", desc: "سخان 8 لتر خيار مثالي للجمعات العائلية", imgUrl: "" },
-        { id: 75, title: "بوفية 10 لتر", category: "البوفيهات والذبائح", desc: "سخان 10 لتر يبيض الوجه في المناسبات المتوسطة", imgUrl: "" },
-        { id: 76, title: "بوفية 12 لتر", category: "البوفيهات والذبائح", desc: "سخان 12 لتر للمناسبات الكبيرة والاحتفالات", imgUrl: "" }
-      ];
-
-      // دالة الجلب: إذا لم توجد أطباق في الذاكرة، يتم حفظ وعرض المنيو الافتراضي
       const getDishes = () => {
         let storedDishes = JSON.parse(localStorage.getItem('vip_dishes'));
         if (!storedDishes || storedDishes.length === 0) {
@@ -212,12 +174,11 @@
         return storedDishes;
       };
 
-      const renderDishes = (filter = currentFilter) => {
+      window.renderDishes = (filter = currentFilter) => {
         currentFilter = filter;
         localMenu.innerHTML = '';
         
         const dishes = getDishes();
-        
         let filteredDishes = filter === 'all' ? dishes : dishes.filter(d => d.category === filter);
 
         if (currentSearchTerm !== '') {
@@ -238,25 +199,46 @@
 
           const placeholderImg = 'https://via.placeholder.com/300?text=بدون+صورة';
           
-          if (dish.imgUrl && dish.imgUrl !== placeholderImg && dish.imgUrl.trim() !== '') {
-            card.innerHTML = `
-              <img src="${dish.imgUrl}" alt="${dish.title}" class="view-btn" style="cursor:pointer;" 
-                   onclick="openModal('${dish.imgUrl}', '${dish.title}', '${dish.desc}')">
-              <div class="item-body">
-                <h4 class="item-title">${dish.title}</h4>
-                <p class="item-desc">${dish.desc}</p>
-              </div>
-            `;
+          let qty = window.cart[dish.title] || 0;
+          let actionHTML = '';
+          if (qty === 0) {
+            actionHTML = `<button class="add-to-cart-btn" onclick="updateQty('${dish.id}', '${dish.title}', 1)">➕ أضف للطلب</button>`;
           } else {
-            card.className += ' no-image';
-            card.innerHTML = `
-              <div class="item-body">
-                <h4 class="item-title">${dish.title}</h4>
-                <p class="item-desc">${dish.desc}</p>
+            actionHTML = `
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateQty('${dish.id}', '${dish.title}', -1)">-</button>
+                <span class="qty-num">${qty}</span>
+                <button class="qty-btn" onclick="updateQty('${dish.id}', '${dish.title}', 1)">+</button>
               </div>
             `;
           }
 
+          let badgeHTML = '';
+          if(dish.title.includes('كبسة لحم') || dish.title.includes('كبسة دجاج')) {
+            badgeHTML = '<span class="item-badge gold-badge">🔥 الأكثر مبيعاً</span>';
+          } else if(dish.title.includes('تيراميسو') || dish.title.includes('جريش')) {
+            badgeHTML = '<span class="item-badge sweet-badge">👨‍🍳 توصية أُميمتي</span>';
+          } else if(dish.title.includes('ذبيحة') || dish.title.includes('بوفية')) {
+            badgeHTML = '<span class="item-badge vip-badge">👑 خيار العزائم</span>';
+          }
+
+          let imgHTML = (dish.imgUrl && dish.imgUrl !== placeholderImg && dish.imgUrl.trim() !== '') 
+            ? `<img src="${dish.imgUrl}" alt="${dish.title}" class="view-btn" style="cursor:pointer;" onclick="openModal('${dish.imgUrl}', '${dish.title}', '${dish.desc}')">` 
+            : '';
+
+          card.innerHTML = `
+            ${badgeHTML} 
+            ${imgHTML}
+            <div class="item-body">
+              <h4 class="item-title">${dish.title}</h4>
+              <p class="item-desc">${dish.desc}</p>
+              <div id="action-btn-${dish.id}" style="margin-top: auto;">
+                ${actionHTML}
+              </div>
+            </div>
+          `;
+
+          if(!imgHTML) card.classList.add('no-image');
           localMenu.appendChild(card);
         });
       };
@@ -264,11 +246,13 @@
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
           currentSearchTerm = e.target.value.trim().toLowerCase();
-          renderDishes(); 
+          window.renderDishes(); 
         });
       }
 
       const renderFilters = () => {
+        if (filtersContainer.children.length > 0) return; 
+        
         const allBtn = document.createElement('button');
         allBtn.className = 'cat-btn active';
         allBtn.textContent = 'الكل';
@@ -287,7 +271,17 @@
       const updateActiveFilter = (clickedBtn, filterValue) => {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         clickedBtn.classList.add('active');
-        renderDishes(filterValue);
+        window.renderDishes(filterValue);
+        
+        const menuSection = document.getElementById('menu');
+        if (menuSection && window.scrollY > 380) { 
+          const headerOffset = 130; 
+          const elementPosition = menuSection.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementPosition - headerOffset,
+            behavior: 'smooth'
+          });
+        }
       };
 
       const modal = document.getElementById('modal');
@@ -300,18 +294,105 @@
       document.getElementById('closeModal').onclick = () => modal.setAttribute('aria-hidden', 'true');
       modal.onclick = (e) => { if (e.target === modal) modal.setAttribute('aria-hidden', 'true'); };
 
-      let lastDishesData = localStorage.getItem('vip_dishes') || '[]';
-      setInterval(() => {
-        const currentDishesData = localStorage.getItem('vip_dishes') || '[]';
-        if (currentDishesData !== lastDishesData) {
-          lastDishesData = currentDishesData;
-          renderDishes();
+      window.addEventListener('scroll', () => {
+        const filtersBar = document.getElementById('category-filters');
+        const mainHeader = document.getElementById('main-header'); 
+
+        if (window.scrollY > 380) {
+          mainHeader.classList.add('compact-mode');
+          filtersBar.style.top = '55px'; 
+        } else {
+          mainHeader.classList.remove('compact-mode');
+          filtersBar.style.top = ''; 
         }
-      }, 1000);
+      });
 
       renderFilters();
-      renderDishes();
+      window.renderDishes();
     });
+
+    // تحديث نص المشاركة
+    window.shareMenu = () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'طَبخ أُمِيمْتي',
+          text: 'يا هلا بالغالي، شف هالمنيو السنع من ليونة وغزولة، وش رايك نطلب منه؟ 😍',
+          url: window.location.href
+        }).catch(console.error);
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('تم نسخ الرابط طال عمرك! تقدر ترسله بالواتساب للربع والعائلة 🤎');
+      }
+    };
+
+    window.toggleNotepad = () => {
+      document.getElementById('notepad-panel').classList.toggle('active');
+    };
+
+    window.updateQty = (id, title, change) => {
+      if (!window.cart[title]) window.cart[title] = 0;
+      window.cart[title] += change;
+      if (window.cart[title] <= 0) delete window.cart[title];
+      
+      const btnContainer = document.getElementById(`action-btn-${id}`);
+      if (btnContainer) {
+        let qty = window.cart[title] || 0;
+        if (qty === 0) {
+          btnContainer.innerHTML = `<button class="add-to-cart-btn" onclick="updateQty('${id}', '${title}', 1)">➕ أضف للطلب</button>`;
+        } else {
+          btnContainer.innerHTML = `
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="updateQty('${id}', '${title}', -1)">-</button>
+              <span class="qty-num">${qty}</span>
+              <button class="qty-btn" onclick="updateQty('${id}', '${title}', 1)">+</button>
+            </div>
+          `;
+        }
+      }
+      updateNotepadView();
+    };
+
+    window.updateNotepadView = () => {
+      const notepad = document.getElementById('notepad-text');
+      const panel = document.getElementById('notepad-panel');
+      let text = '';
+      for (let title in window.cart) {
+        text += `- ${title} (الكمية: ${window.cart[title]})\n`;
+      }
+      notepad.value = text;
+      
+      if (text !== '' && !panel.classList.contains('active')) {
+        panel.classList.add('active');
+      }
+      notepad.style.backgroundColor = '#e8f5e9';
+      setTimeout(() => { notepad.style.backgroundColor = '#fafafa'; }, 400);
+    };
+
+    // تحديث نص رسالة الحذف
+    window.clearNotepad = () => {
+      const notepad = document.getElementById('notepad-text');
+      if (!notepad.value || notepad.value.trim() === '') return; 
+      
+      if(confirm('متأكد ودّك تمسح كل الطلبات؟')) {
+        window.cart = {}; 
+        notepad.value = ''; 
+        if (typeof window.renderDishes === 'function') {
+          window.renderDishes(); 
+        }
+      }
+    };
+
+    // تحديث رسالة الواتساب
+    window.sendNotepadToWhatsApp = () => {
+      const text = document.getElementById('notepad-text').value.trim();
+      if(!text) {
+        alert('الورقة فاضية طال عمرك! نقّ أطباقك من المنيو أول 🤎');
+        return;
+      }
+      const message = "يا هلا بـ طَبخ أُمِيمْتي، هذا طلبي الله يعافيكم:\n\n" + text + "\n\n(بانتظار تأكيدكم، لاهنتوا)";
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wsend.co/966504228617?text=${encodedMessage}`, '_blank');
+    };
   </script>
 </body>
 </html>
