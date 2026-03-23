@@ -468,15 +468,25 @@
     };
 
     // تحديث رسالة الواتساب
+        // تحديث رسالة الواتساب بالرابط الرسمي
     window.sendNotepadToWhatsApp = () => {
+      // 1. نسحب الطلبات من مربع النص (المقاضي)
       const text = document.getElementById('notepad-text').value.trim();
+      
+      // 2. نتأكد إن السلة مو فاضية
       if(!text) {
         alert('الورقة فاضية طال عمرك! نقّ أطباقك من المنيو أول 🤎');
         return;
       }
+      
+      // 3. نجهز الرسالة بشكل مرتب للعميل
       const message = "يا هلا بـ طَبخ أُمِيمْتي، هذا طلبي الله يعافيكم:\n\n" + text + "\n\n(بانتظار تأكيدكم، لاهنتوا)";
+      
+      // 4. نحول النص لصيغة يقبلها المتصفح والواتساب
       const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wsend.co/966504228617?text=${encodedMessage}`, '_blank');
+      
+      // 5. نفتح تطبيق الواتساب مباشرة على رقمكم
+      window.open(`https://wa.me/966504228617?text=${encodedMessage}`, '_blank');
     };
   </script>
 </body>
